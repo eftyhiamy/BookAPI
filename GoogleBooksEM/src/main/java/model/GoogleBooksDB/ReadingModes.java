@@ -1,9 +1,8 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "text",
     "image"
 })
-
 public class ReadingModes {
 
     @JsonProperty("text")
@@ -24,7 +22,7 @@ public class ReadingModes {
     @JsonProperty("image")
     private Boolean image;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("text")
     public Boolean getText() {

@@ -1,9 +1,8 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "containsEpubBubbles",
     "containsImageBubbles"
 })
-
 public class PanelizationSummary {
 
     @JsonProperty("containsEpubBubbles")
@@ -24,7 +22,7 @@ public class PanelizationSummary {
     @JsonProperty("containsImageBubbles")
     private Boolean containsImageBubbles;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("containsEpubBubbles")
     public Boolean getContainsEpubBubbles() {

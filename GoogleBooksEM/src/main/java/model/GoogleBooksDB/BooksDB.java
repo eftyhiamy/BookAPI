@@ -1,10 +1,9 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "totalItems",
     "items"
 })
-
 public class BooksDB {
 
     @JsonProperty("kind")
@@ -26,9 +24,9 @@ public class BooksDB {
     @JsonProperty("totalItems")
     private Integer totalItems;
     @JsonProperty("items")
-    private List<Item> items = null;
+    private List<Item> items;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("kind")
     public String getKind() {

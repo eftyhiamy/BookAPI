@@ -1,119 +1,109 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.transform.Result;
+
+import model.GoogleBooksDB.AccessInfo;
+import model.GoogleBooksDB.Epub;
+import model.GoogleBooksDB.IndustryIdentifier;
+import model.GoogleBooksDB.Item;
+import model.GoogleBooksDB.VolumeInfo;
+
+//After relating with VolumeInfo created by postman, will include only the variables that I need for the project//
 
 public class VolumesInfo {
-//Creating variables for book details
 	private final String title;
-	private final ArrayList<String> authors;
-	private final String subject;
+	private final List<String> authors;
+	private final List<String> categories;
 	private final String publisher;
 	private final String isbn;
-	private final String download;
-	private final String filter;
-	private final String langRestrict;
-	private final String maxResults;
-	private final String orderBy;
+	private final Epub epub;
+	private final String viewability;
 	private final String printType;
-	private final String projection;
-	private final String startIndex;
-	private final String Id;
+
+	//public VolumesInfo(String title, String authors, String categories; String publisher, String isbn, Epub epub, String viewability, String printType) {
+	//	this.title = title;
+	//	this.authors = authors;
+	//	this.categories = categories;
+	//	this.publisher = publisher;
+	//	this.isbn = isbn;
+	//	this.epub = epub;
+	//	this.viewability = viewability;
+	//	this.printType = printType;
+	//	}
 	
-//Creating a constructor class
-	
-	public VolumesInfo(String title, ArrayList<String> authors, String subject, String publisher, String isbn, String download, String filter, String langRestrict, String maxResults, String orderBy, String printType, String projection, String startIndex, String Id) {
-		this.title = title;
-		this.authors = authors;
-		this.subject = subject;
-		this.publisher = publisher;
-		this.isbn = isbn;
-		this.download = download;
-		this.filter = filter;
-		this.langRestrict = langRestrict;
-		this.maxResults = maxResults;
-		this.orderBy = orderBy;
-		this.printType = printType;
-		this.projection = projection;
-		this.startIndex = startIndex;
-		this.Id = Id;
+	public VolumesInfo(VolumeInfo theVolumeInfo) {
+		this.title = theVolumeInfo.getTitle();
+		this.authors = theVolumeInfo.getAuthors();
+		this.categories = theVolumeInfo.getCategories();
+		this.publisher = theVolumeInfo.getPublisher();
+		this.printType = theVolumeInfo.getPrintType();
 	}
 	
-//Creating setter and getter methods
+	public VolumesInfo(IndustryIdentifier theIndustryIdentifier) {
+		this.isbn = theIndustryIdentifier.getIdentifier();	
+	}
+	
+	public VolumesInfo(AccessInfo theAccessInfo) {
+		this.epub = theAccessInfo.getEpub();
+		this.viewability = theAccessInfo.getViewability();
+	}
+	/**
+	 * @return the title
+	 */
 	public String getTitle() {
 		return title;
 	}
-
-	public ArrayList<String> getAuthors() {
+	/**
+	 * @return the authors
+	 */
+	public List<String> getAuthors() {
 		return authors;
 	}
-
-	public String getSubject() {
-		return subject;
+	/**
+	 * @return the categories
+	 */
+	public List<String> getCategories() {
+		return categories;
 	}
-
+	/**
+	 * @return the publisher
+	 */
 	public String getPublisher() {
 		return publisher;
 	}
-
+	/**
+	 * @return the isbn
+	 */
 	public String getIsbn() {
 		return isbn;
 	}
-
-	public String getDownload() {
-		return download;
+	/**
+	 * @return the epub
+	 */
+	public Epub getEpub() {
+		return epub;
 	}
-
-	public String getFilter() {
-		return filter;
+	/**
+	 * @return the viewability
+	 */
+	public String getViewability() {
+		return viewability;
 	}
-
-	public String getLangRestrict() {
-		return langRestrict;
-	}
-
-	public String getMaxResults() {
-		return maxResults;
-	}
-
-	public String getOrderBy() {
-		return orderBy;
-	}
-
+	/**
+	 * @return the printType
+	 */
 	public String getPrintType() {
 		return printType;
 	}
-
-	public String getProjection() {
-		return projection;
-	}
-
-	public String getStartIndex() {
-		return startIndex;
-	}
-
-	public String getId() {
-		return Id;
-	}
-
 	@Override
-    public String toString() {
-        return "VolumesInfo{" +
-                "title='" + title + "'\n" +
-                ", authors ='" + authors + "'\n" +
-                ", subject='" + subject + "'\n" +
-                ", publisher='" + publisher + "'\n" +
-                ", isbn='" + isbn + "'\n" +
-                ", download='" + download + "'\n" +
-                ", filter='" + filter + "'\n" +
-                ", langRestrict='" + langRestrict + "'\n" +
-                ", maxResults='" + maxResults + "'\n" +
-                ", orderBy='" + orderBy + "'\n" +
-                ", printType='" + printType + "'\n" +
-                ", projection='" + projection + "'\n" +
-                ", startIndex='" + startIndex + "'\n" +
-                ", Id='" + Id + "'\n" +
-                '}';
-    }
+	public String toString() {
+		return "VolumesInfo [title=" + title + ", authors=" + authors + ", categories=" + categories + ", publisher="
+				+ publisher + ", isbn=" + isbn + ", epub=" + epub + ", viewability=" + viewability + ", printType="
+				+ printType + "]";
+	}
 	
-	
+	}
 }

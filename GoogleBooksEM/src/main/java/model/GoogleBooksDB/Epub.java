@@ -1,9 +1,8 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,17 +13,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "isAvailable",
-    "downloadLink"
+    "acsTokenLink"
 })
-
 public class Epub {
 
     @JsonProperty("isAvailable")
     private Boolean isAvailable;
-    @JsonProperty("downloadLink")
-    private String downloadLink;
+    @JsonProperty("acsTokenLink")
+    private String acsTokenLink;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("isAvailable")
     public Boolean getIsAvailable() {
@@ -36,14 +34,14 @@ public class Epub {
         this.isAvailable = isAvailable;
     }
 
-    @JsonProperty("downloadLink")
-    public String getDownloadLink() {
-        return downloadLink;
+    @JsonProperty("acsTokenLink")
+    public String getAcsTokenLink() {
+        return acsTokenLink;
     }
 
-    @JsonProperty("downloadLink")
-    public void setDownloadLink(String downloadLink) {
-        this.downloadLink = downloadLink;
+    @JsonProperty("acsTokenLink")
+    public void setAcsTokenLink(String acsTokenLink) {
+        this.acsTokenLink = acsTokenLink;
     }
 
     @JsonAnyGetter

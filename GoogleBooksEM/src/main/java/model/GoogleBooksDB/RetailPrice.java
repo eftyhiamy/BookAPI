@@ -1,9 +1,8 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,23 +15,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "amount",
     "currencyCode"
 })
-
 public class RetailPrice {
 
     @JsonProperty("amount")
-    private Integer amount;
+    private Double amount;
     @JsonProperty("currencyCode")
     private String currencyCode;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("amount")
-    public Integer getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
     @JsonProperty("amount")
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

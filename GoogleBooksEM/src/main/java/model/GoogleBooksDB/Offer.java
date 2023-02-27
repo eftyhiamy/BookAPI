@@ -1,9 +1,8 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,9 +15,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "finskyOfferType",
     "listPrice",
     "retailPrice",
-    "giftable"
+    "giftable",
+    "rentalDuration"
 })
-
 public class Offer {
 
     @JsonProperty("finskyOfferType")
@@ -29,8 +28,10 @@ public class Offer {
     private RetailPrice__1 retailPrice;
     @JsonProperty("giftable")
     private Boolean giftable;
+    @JsonProperty("rentalDuration")
+    private RentalDuration rentalDuration;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("finskyOfferType")
     public Integer getFinskyOfferType() {
@@ -70,6 +71,16 @@ public class Offer {
     @JsonProperty("giftable")
     public void setGiftable(Boolean giftable) {
         this.giftable = giftable;
+    }
+
+    @JsonProperty("rentalDuration")
+    public RentalDuration getRentalDuration() {
+        return rentalDuration;
+    }
+
+    @JsonProperty("rentalDuration")
+    public void setRentalDuration(RentalDuration rentalDuration) {
+        this.rentalDuration = rentalDuration;
     }
 
     @JsonAnyGetter

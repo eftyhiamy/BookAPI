@@ -1,10 +1,9 @@
 
 package model.GoogleBooksDB;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "pageCount",
     "printType",
     "categories",
+    "averageRating",
+    "ratingsCount",
     "maturityRating",
     "allowAnonLogging",
     "contentVersion",
@@ -33,11 +34,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "language",
     "previewLink",
     "infoLink",
-    "canonicalVolumeLink",
-    "averageRating",
-    "ratingsCount"
+    "canonicalVolumeLink"
 })
-
 public class VolumeInfo {
 
     @JsonProperty("title")
@@ -45,7 +43,7 @@ public class VolumeInfo {
     @JsonProperty("subtitle")
     private String subtitle;
     @JsonProperty("authors")
-    private List<String> authors = null;
+    private List<String> authors;
     @JsonProperty("publisher")
     private String publisher;
     @JsonProperty("publishedDate")
@@ -53,7 +51,7 @@ public class VolumeInfo {
     @JsonProperty("description")
     private String description;
     @JsonProperty("industryIdentifiers")
-    private List<IndustryIdentifier> industryIdentifiers = null;
+    private List<IndustryIdentifier> industryIdentifiers;
     @JsonProperty("readingModes")
     private ReadingModes readingModes;
     @JsonProperty("pageCount")
@@ -61,7 +59,11 @@ public class VolumeInfo {
     @JsonProperty("printType")
     private String printType;
     @JsonProperty("categories")
-    private List<String> categories = null;
+    private List<String> categories;
+    @JsonProperty("averageRating")
+    private Integer averageRating;
+    @JsonProperty("ratingsCount")
+    private Integer ratingsCount;
     @JsonProperty("maturityRating")
     private String maturityRating;
     @JsonProperty("allowAnonLogging")
@@ -80,12 +82,8 @@ public class VolumeInfo {
     private String infoLink;
     @JsonProperty("canonicalVolumeLink")
     private String canonicalVolumeLink;
-    @JsonProperty("averageRating")
-    private Integer averageRating;
-    @JsonProperty("ratingsCount")
-    private Integer ratingsCount;
     @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("title")
     public String getTitle() {
@@ -197,6 +195,26 @@ public class VolumeInfo {
         this.categories = categories;
     }
 
+    @JsonProperty("averageRating")
+    public Integer getAverageRating() {
+        return averageRating;
+    }
+
+    @JsonProperty("averageRating")
+    public void setAverageRating(Integer averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    @JsonProperty("ratingsCount")
+    public Integer getRatingsCount() {
+        return ratingsCount;
+    }
+
+    @JsonProperty("ratingsCount")
+    public void setRatingsCount(Integer ratingsCount) {
+        this.ratingsCount = ratingsCount;
+    }
+
     @JsonProperty("maturityRating")
     public String getMaturityRating() {
         return maturityRating;
@@ -285,26 +303,6 @@ public class VolumeInfo {
     @JsonProperty("canonicalVolumeLink")
     public void setCanonicalVolumeLink(String canonicalVolumeLink) {
         this.canonicalVolumeLink = canonicalVolumeLink;
-    }
-
-    @JsonProperty("averageRating")
-    public Integer getAverageRating() {
-        return averageRating;
-    }
-
-    @JsonProperty("averageRating")
-    public void setAverageRating(Integer averageRating) {
-        this.averageRating = averageRating;
-    }
-
-    @JsonProperty("ratingsCount")
-    public Integer getRatingsCount() {
-        return ratingsCount;
-    }
-
-    @JsonProperty("ratingsCount")
-    public void setRatingsCount(Integer ratingsCount) {
-        this.ratingsCount = ratingsCount;
     }
 
     @JsonAnyGetter
